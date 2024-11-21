@@ -11,3 +11,13 @@
     text-decoration: none;
     font-size: 17px;
 }
+
+.navigation_bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navigation_bar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
