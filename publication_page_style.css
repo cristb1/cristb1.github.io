@@ -1,3 +1,7 @@
 .publications_page h1 {
     text-align: center;
 }
+
+.list_publications ol {
+    text-align: center;
+}
