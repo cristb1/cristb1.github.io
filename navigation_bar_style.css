@@ -15,3 +15,10 @@
 .navigation_bar a:hover {
     color: rgb(0, 140, 255);
 }
+
+.navigation_bar img {
+    width: 15%;
+    position: absolute;
+    top: 2%;
+    left: 1.5%;
+}
