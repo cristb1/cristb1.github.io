@@ -1,3 +1,3 @@
-x = linspace(0,2*pi);
+x = 0:pi/100:2*pi;
 y = sin(x);
 plot(x,y)
