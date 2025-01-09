@@ -22,7 +22,7 @@ f_old = ones(N_y,N_x,9); % Old PDF matrix
 f_new = ones(N_y,N_x,9); % New PDF matrix
 f_eq = ones(N_y,N_x,9); % Equilibrium PDF matrix
 
-T_stop=10000;
+T_stop=100; %was 10000
 for t=1:T_stop
     %% Solver
     %% Streaming for all interior nodes and also for boundary nodes (the applications of boundary conditions)
@@ -161,6 +161,10 @@ for t=1:T_stop
     f_old=f_new-(f_new-f_eq)/Tau;
 end
 %% Post-Processing
-figure;
-quiver(flipud(u),flipud(v),10)
-axis equal tight
+ % figure;
+ % quiver(flipud(u),flipud(v),10)
+ % axis equal tight
+csvwrite('n_x_data.csv', N_x-1, 0, 0) % Write N_x to csv file, -1 because javascript starts at index 0 instead of index 1
+                                      % Since N_x and N_y are the same, not going to bother writing N_y as well
+writematrix(u,'u_data.csv') % Write u values to csv file
+writematrix(v,'v_data.csv') % Write v values to csv file
