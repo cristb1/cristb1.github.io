@@ -174,5 +174,8 @@ function setup() {
 function draw() {
     // No continuous drawing needed
     noLoop();
-}   
+}
+
+setup();
+draw();
  
