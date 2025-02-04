@@ -1,5 +1,3 @@
-const p5 = require(p5.js);
-
 var Ksi = [0, 1, 0, -1, 0, 1, -1, -1,  1, 0, 0, 1, 0, -1, 1, 1, -1, -1]; // D2Q9 lattice
 w = [4/9, 1/9, 1/9, 1/9, 1/9, 1/36, 1/36, 1/36, 1/36]; // Weight
 c_s = 1/Math.sqrt(3); // Speed of Sound
