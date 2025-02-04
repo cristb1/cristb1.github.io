@@ -157,21 +157,18 @@ const flippedV = v.reverse();
 
 const scale = 10;
 
-// Assuming you are using a library like p5.js for visualization
-function setup() {
-    createCanvas(400, 400); // Set canvas size
-    background(255);
-    stroke(0);
-    for (let i = 0; i < N_y; i++) {
-        for (let j = 0; j < N_x; j++) {
-            line(j * scale, i * scale, j * scale + flippedU[i][j] * scale, i * scale + flippedV[i][j] * scale);
-        }
-    }
-}
-
-function draw() {
-    // No continuous drawing needed
-    noLoop();
-}
+Plotly.newPlot('plot', [
+    {
+      type: 'scatter',
+      mode: 'markers+text',
+      x: [0, 1, 2, 3],
+      y: [0, 1, 2, 3],
+      text: ['(0,0)', '(1,1)', '(2,2)', '(3,3)'],
+      marker: {
+        symbol: 'arrow-bar-up',
+        angleref: 'previous'
+      },
+    },
+  ]);
 
  
