@@ -157,30 +157,6 @@ const flippedV = v.reverse();
 
 const scale = 10;
 
-function setup() {
-    createCanvas(400, 400);
-    noLoop();
-  }
-  
-  function draw() {
-    background(255);
-    stroke(0);
-    strokeWeight(2);
-  
-    for (let x = 0; x < width; x += 20) {
-      for (let y = 0; y < height; y += 20) {
-        let angle = atan2(y - height / 2, x - width / 2);
-        let vec = createVector(cos(angle), sin(angle));
-        push();
-        translate(x, y);
-        line(0, 0, vec.x * 10, vec.y * 10); // Draw the vector
-        pop();
-      }
-    }
-  }
-
-  
-/*
 // Assuming you are using a library like p5.js for visualization
 function setup() {
     createCanvas(400, 400); // Set canvas size
@@ -198,7 +174,4 @@ function draw() {
     noLoop();
 }
 
-setup();
-draw();
-*/
  
