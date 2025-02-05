@@ -157,8 +157,6 @@ const scale = 10;
 
 const x = [1, 2, 3, 4, 5];
 const y = [1, 2, 3, 4, 5];
-const u = [1, 0, -1, 0, 1];
-const v = [0, 1, 0, -1, 0];
 
 const data = [{
   type: 'scatter',
