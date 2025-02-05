@@ -155,18 +155,38 @@ const flippedV = v.reverse();
 
 const scale = 10;
 
-Plotly.newPlot('plot', [
-    {
-      type: 'scatter',
-      mode: 'markers+text',
-      x: [0, 1, 2, 3],
-      y: [0, 1, 2, 3],
-      text: ['(0,0)', '(1,1)', '(2,2)', '(3,3)'],
-      marker: {
-        symbol: 'arrow-bar-up',
-        angleref: 'previous'
-      },
-    },
-  ]);
+ // Data for the quiver plot (grid and vector components)
+ var x = [1, 2, 3, 4];  // X-coordinates of the starting points of the vectors
+ var y = [1, 2, 3, 4];  // Y-coordinates of the starting points of the vectors
+ var u = [1, 1, -1, -1];  // X components of the vectors (direction and magnitude)
+ var v = [1, -1, -1, 1];  // Y components of the vectors (direction and magnitude)
+
+ // Create the quiver plot using the 'scatter' trace type
+ var trace = {
+     x: x,
+     y: y,
+     u: u,
+     v: v,
+     type: 'scatter',
+     mode: 'lines+text',
+     line: {
+         color: 'blue',
+         width: 2
+     },
+     text: ['A', 'B', 'C', 'D'],
+     textposition: 'top center',
+     arrowhead: 2,  // Arrow style
+     showlegend: false
+ };
+
+ var layout = {
+     title: 'Quiver Plot',
+     xaxis: { title: 'X' },
+     yaxis: { title: 'Y' },
+     showlegend: false
+ };
+
+ // Render the plot
+ Plotly.newPlot('quiverPlot', [trace], layout);
 
  
