@@ -153,37 +153,34 @@ for(let t = 1; t < T_stop; t++){
 const flippedU = u.reverse();
 const flippedV = v.reverse();
 
-const scale = 10;
+function quiver(vectorField, xrange, yrange, xstep, ystep) {
+    // Function to create a vector field over a range of values
+    var anno = []
+    for (let i=xrange[0]; i <= xrange[1]; i += xstep){
+        for (let j=yrange[0]; j <=yrange[1]; j += ystep) {
+            let direction = vectorField([i, j])
 
-const x = [1, 2, 3, 4, 5];
-const y = [1, 2, 3, 4, 5];
+            let mag = Math.sqrt(Math.pow(direction[0], 2) + Math.pow(direction[1], 2))+0.00000001
+            anno.push(
+                {
+                    x: i,
+                    y: j,
+                    showarrow: true,
+                    ax: direction[0]*25/mag,
+                    ay: -direction[1]*25/mag
+                  }
+            )
+        }
 
-const data = [{
-  type: 'scatter',
-  mode: 'lines+markers',
-  x: x,
-  y: y,
-  line: {
-    color: 'black',
-    width: 1
-  },
-  marker: {
-    size: 10,
-    color: 'blue'
-  }
-}];
+    }
+    return {
+        showlegend: false,
+        annotations: anno
+      }
+}
 
-const layout = {
-  title: 'Quiver Plot',
-  xaxis: {
-    title: 'X'
-  },
-  yaxis: {
-    title: 'Y'
-  }
-};
 
-Plotly.newPlot('quiverPlot', data, layout);
+Plotly.newPlot('quiverPlot', flippedU, flippedV, 10, 10);
 
 
  
