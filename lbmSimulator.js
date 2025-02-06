@@ -153,7 +153,38 @@ for(let t = 1; t < T_stop; t++){
 const flippedU = u.reverse();
 const flippedV = v.reverse();
 
-function quiver(vectorField, xrange, yrange, xstep, ystep) {
+var x = [0, 1, 2, 3];
+var y = [0, 1, 2, 3];
+var z = [1, 1, -1, -1];  // X-component of vectors
+var a = [1, -1, 1, -1];  // Y-component of vectors
+
+// Create the data object for Plotly
+var data = [{
+    x: x,
+    y: y,
+    z: z,
+    a: a,
+    type: 'quiver',
+    mode: 'lines',
+    line: {
+        width: 2,
+        color: 'blue'
+    },
+    text: ['↑', '→', '↓', '←'],
+    textposition: 'top center'
+}];
+
+    // Set the layout for the plot
+var layout = {
+    title: 'Quiver Plot Example',
+    xaxis: { title: 'X Axis' },
+    yaxis: { title: 'Y Axis' }
+};
+
+// Plot the Quiver plot in the div with id 'quiverPlot'
+Plotly.newPlot('quiverPlot', data, layout);
+
+/*function quiver(vectorField, xrange, yrange, xstep, ystep) {
     // Function to create a vector field over a range of values
     var anno = []
     for (let i=xrange[0]; i <= xrange[1]; i += xstep){
@@ -182,7 +213,7 @@ function quiver(vectorField, xrange, yrange, xstep, ystep) {
 
 plot = quiver([flippedU, flippedV], 10, 10, 10, 10);
 
-Plotly.newPlot('quiverPlot', plot)
+Plotly.newPlot('quiverPlot', plot)*/
 
 
  
