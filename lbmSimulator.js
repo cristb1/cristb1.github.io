@@ -180,7 +180,9 @@ function quiver(vectorField, xrange, yrange, xstep, ystep) {
 }
 
 
-Plotly.quiver('quiverPlot', flippedU, flippedV, 10, 10);
+plot = quiver([flippedU, flippedV], 10, 10, 10, 10);
+
+Plotly.newPlot('quiverPlot', plot)
 
 
  
