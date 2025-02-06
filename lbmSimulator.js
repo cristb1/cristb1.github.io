@@ -153,36 +153,37 @@ for(let t = 1; t < T_stop; t++){
 const flippedU = u.reverse();
 const flippedV = v.reverse();
 
+// Define the data for the Quiver plot
 var x = [0, 1, 2, 3];
 var y = [0, 1, 2, 3];
 var z = [1, 1, -1, -1];  // X-component of vectors
 var a = [1, -1, 1, -1];  // Y-component of vectors
 
-// Create the data object for Plotly
-var data = [{
-    x: x,
-    y: y,
-    z: z,
-    a: a,
-    type: 'quiver',
-    mode: 'lines',
-    line: {
-        width: 2,
-        color: 'blue'
-    },
-    text: ['↑', '→', '↓', '←'],
+// Create the arrows (as lines) for the quiver plot
+var arrows = [];
+for (var i = 0; i < x.length; i++) {
+  arrows.push({
+    x: [x[i], x[i] + z[i]],
+    y: [y[i], y[i] + a[i]],
+    type: 'scatter',
+    mode: 'lines+text',
+    line: {color: 'blue', width: 2},
+    text: ['↑', '→', '↓', '←'][i],  // Arrow symbols at each vector end
     textposition: 'top center'
-}];
+  });
+}
 
-    // Set the layout for the plot
+// Set the layout for the plot
 var layout = {
-    title: 'Quiver Plot Example',
-    xaxis: { title: 'X Axis' },
-    yaxis: { title: 'Y Axis' }
+  title: 'Quiver Plot Example',
+  xaxis: {title: 'X Axis', range: [-1, 4]},
+  yaxis: {title: 'Y Axis', range: [-1, 4]},
+  showlegend: false,
+  autosize: true
 };
 
 // Plot the Quiver plot in the div with id 'quiverPlot'
-Plotly.newPlot('quiverPlot', data, layout);
+Plotly.newPlot('quiverPlot', arrows, layout);
 
 /*function quiver(vectorField, xrange, yrange, xstep, ystep) {
     // Function to create a vector field over a range of values
