@@ -1,3 +1,26 @@
 defaultCanvas0 {
     border-style: solid;
 }
+@keyframes menu_gradient {
+    from {background-color: #ff00ff;}
+    to {background-color: #dfff00;}
+    to {background-color: #87CEEB;}
+}
+/* Add a black background color to the top navigation */
+.menu {
+    background-color: white;
+    height: 50px;
+    animation-name: menu_gradient;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    overflow: hidden;
+  }
+
+.menu a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    float: left;
+    color: #13074f;
+    text-align: center;
+    padding: 14px 16px;
+}  
